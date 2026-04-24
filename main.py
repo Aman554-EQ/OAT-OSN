@@ -1,6 +1,3 @@
-%%writefile /kaggle/working/OAT-OSN/main.py
-
-
 import os
 import json
 import torch

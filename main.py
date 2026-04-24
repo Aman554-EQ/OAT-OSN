@@ -1,3 +1,5 @@
+%%writefile /kaggle/working/OAT-OSN/main.py
+
 
 import os
 import json
@@ -439,7 +441,7 @@ class SaveOutput:
 
 def test(opt): 
     model = MYNET(opt)
-    checkpoint = torch.load(opt["checkpoint_path"]+"/"+opt['exp']+"_ckp_best.pth.tar")
+    checkpoint = torch.load(opt["checkpoint_path"]+"/ckp_best.pth.tar")
     base_dict = checkpoint['state_dict']
     
     # Handle DataParallel state dict loading
@@ -460,7 +462,7 @@ def test(opt):
     if opt["pptype"]=="net":
         result_dict = eval_map_supnet(opt,dataset, output_cls, output_reg, labels_cls, labels_reg)
     output_dict={"version":"VERSION 1.3","results":result_dict,"external_data":{}}
-    outfile=open(opt["result_file"].format(opt['exp']),"w")
+    outfile=open(opt["result_file"],"w")
     json.dump(output_dict,outfile, indent=2)
     outfile.close()
     

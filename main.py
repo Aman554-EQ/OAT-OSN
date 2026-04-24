@@ -166,7 +166,7 @@ def train(opt):
                 model.module.best_map = IoUmAP_5
             else:
                 model.best_map = IoUmAP_5
-            torch.save(state, opt["checkpoint_path"]+"/"+opt["exp"]+"_ckp_best.pth.tar" )
+            torch.save(state, opt["checkpoint_path"]+"/ckp_best.pth.tar" )
                 
     writer.close()
     

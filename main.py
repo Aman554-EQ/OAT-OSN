@@ -159,7 +159,7 @@ def train(opt):
             
         state = {'epoch': n_epoch + 1,
                 'state_dict': state_dict}
-        torch.save(state, opt["checkpoint_path"]+"/"+opt["exp"]+"_checkpoint_"+str(n_epoch+1)+".pth.tar" )
+        torch.save(state, opt["checkpoint_path"]+"/ckp_best.pth.tar" )
         
         if IoUmAP_5 > best_map:
             if hasattr(model, 'module'):
